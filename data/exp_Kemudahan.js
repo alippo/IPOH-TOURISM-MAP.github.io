@@ -1,0 +1,36 @@
+var exp_Kemudahan = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Nama": "Ipoh Specialist Hospital", "NoTelefon": "+605-2408777" }, "geometry": { "type": "Point", "coordinates": [ 101.09584820000001, 4.5943833 ] } },
+{ "type": "Feature", "properties": { "Nama": "Dewan Bandaraya Ipoh", "NoTelefon": "+605-2083333" }, "geometry": { "type": "Point", "coordinates": [ 101.07480390000001, 4.5973187 ] } },
+{ "type": "Feature", "properties": { "Nama": "Geological Museum Ipoh", "NoTelefon": "+605-5406000" }, "geometry": { "type": "Point", "coordinates": [ 101.1194968, 4.5968821 ] } },
+{ "type": "Feature", "properties": { "Nama": "Klinik Malaysia", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.1353529, 4.6400756 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Bercham", "NoTelefon": "+605-5477363" }, "geometry": { "type": "Point", "coordinates": [ 101.1289585, 4.6414658 ] } },
+{ "type": "Feature", "properties": { "Nama": "Klinik Kesihatan Simee", "NoTelefon": "+605-5474202" }, "geometry": { "type": "Point", "coordinates": [ 101.1151118, 4.6167971 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Simee", "NoTelefon": "+605-5477321" }, "geometry": { "type": "Point", "coordinates": [ 101.105885, 4.6162944 ] } },
+{ "type": "Feature", "properties": { "Nama": "Klinik 1Malaysia Meru Jaya", "NoTelefon": "+605-5264968" }, "geometry": { "type": "Point", "coordinates": [ 101.0758443, 4.673187 ] } },
+{ "type": "Feature", "properties": { "Nama": "Kinta Medical Center", "NoTelefon": "+605-2425333" }, "geometry": { "type": "Point", "coordinates": [ 101.0878528, 4.5883144 ] } },
+{ "type": "Feature", "properties": { "Nama": "Ar-Ridzuan Medical Center", "NoTelefon": "+605-2421111" }, "geometry": { "type": "Point", "coordinates": [ 101.09145770000001, 4.5878653 ] } },
+{ "type": "Feature", "properties": { "Nama": "Perak Community Specialist Hospital", "NoTelefon": "+605-2548918" }, "geometry": { "type": "Point", "coordinates": [ 101.1004485, 4.5812133 ] } },
+{ "type": "Feature", "properties": { "Nama": "Federal Building Ipoh", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.0767073, 4.6049039 ] } },
+{ "type": "Feature", "properties": { "Nama": "Perak Darul Ridzuan Building", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.0770399, 4.6064866 ] } },
+{ "type": "Feature", "properties": { "Nama": "Ipoh General Hospital", "NoTelefon": "+605-2085000" }, "geometry": { "type": "Point", "coordinates": [ 101.0905582, 4.6034174 ] } },
+{ "type": "Feature", "properties": { "Nama": "Federal Building Ipoh (Greentown)", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.0925645, 4.6006369 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Kampung Baru", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.0635916, 4.5928185 ] } },
+{ "type": "Feature", "properties": { "Nama": "Post Office Buntong", "NoTelefon": "+605-2541970" }, "geometry": { "type": "Point", "coordinates": [ 101.0632826, 4.5932237 ] } },
+{ "type": "Feature", "properties": { "Nama": "Pusat Kecermelangan Sukan", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.0809791, 4.5812878 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Pasir Puteh", "NoTelefon": "+605-3212222" }, "geometry": { "type": "Point", "coordinates": [ 101.07999460000001, 4.5745545 ] } },
+{ "type": "Feature", "properties": { "Nama": "Pantai Hospital Ipoh", "NoTelefon": "+605-5484333" }, "geometry": { "type": "Point", "coordinates": [ 101.1197143, 4.6034393 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Kampung Tawas", "NoTelefon": "+605-5477324" }, "geometry": { "type": "Point", "coordinates": [ 101.10247390000001, 4.6491601 ] } },
+{ "type": "Feature", "properties": { "Nama": "Post Office Kampung Tawas", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.1018722, 4.6482605 ] } },
+{ "type": "Feature", "properties": { "Nama": "Tun Razak City Library", "NoTelefon": "+605-2558073" }, "geometry": { "type": "Point", "coordinates": [ 101.0751302, 4.6010657 ] } },
+{ "type": "Feature", "properties": { "Nama": "Jabatan Kesihatan Ipoh", "NoTelefon": "+605-2533489" }, "geometry": { "type": "Point", "coordinates": [ 101.0747155, 4.5931149 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Jelapang", "NoTelefon": "+605-5261226" }, "geometry": { "type": "Point", "coordinates": [ 101.0635891, 4.6392794 ] } },
+{ "type": "Feature", "properties": { "Nama": "Police Station Kampung Rapat", "NoTelefon": "+605-3126327" }, "geometry": { "type": "Point", "coordinates": [ 101.1124599, 4.5730706 ] } },
+{ "type": "Feature", "properties": { "Nama": "Ipoh Tourist Information", "NoTelefon": "+605-2412959" }, "geometry": { "type": "Point", "coordinates": [ 101.0761365, 4.5981466 ] } },
+{ "type": "Feature", "properties": { "Nama": "Jabatan Imgresen Malaysia", "NoTelefon": "+605-5017100" }, "geometry": { "type": "Point", "coordinates": [ 101.0711604, 4.6727528 ] } },
+{ "type": "Feature", "properties": { "Nama": "Balai Polis Pekan Baru", "NoTelefon": null }, "geometry": { "type": "Point", "coordinates": [ 101.0851595274181, 4.593470941780637 ] } }
+]
+}

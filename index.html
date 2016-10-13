@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IPOH TOURISM  MAP</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<link rel="stylesheet" href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css" />	
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="data/exp_Network.js"></script>
+		<script src="data/exp_Rekreasi.js"></script>
+		<script src="data/exp_Kemudahan.js"></script>
+		<script src="data/exp_Penginapan.js"></script>
+		<script src="data/exp_Makanan.js"></script>
+		<script src="data/exp_Pengangkutan.js"></script>
+		<script src="data/exp_Keagamaan.js"></script>
+		<script src="data/exp_Zon.js"></script>
+		<script src="data/exp_Jalan.js"></script>
+		<script src="data/exp_Sungai.js"></script>
+		<script src="data/exp_Lot.js"></script>
+		<script src="data/exp_Daerah.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[4.56161677325,101.064411317],[4.61291202652,101.158065097]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var basemap_0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});	
+		basemap_0.addTo(map);	
+		var layerOrder=new Array();
+		function pop_Daerah(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Daerah</th><td>' + Autolinker.link(String(feature.properties['Daerah'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleDaerah(feature) {
+				return {
+					color: '#000000',
+					fillColor: '#a7ffa9',
+					weight: 1.3,
+					dashArray: '',
+					opacity: 0.733333,
+					fillOpacity: 0.733333
+				};
+
+		}
+		var exp_DaerahJSON = new L.geoJson(exp_Daerah,{
+			onEachFeature: pop_Daerah,
+			style: doStyleDaerah
+		});
+		layerOrder[layerOrder.length] = exp_DaerahJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_DaerahJSON);
+		function pop_Lot(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLot(feature) {
+				return {
+					color: '#809848',
+					fillColor: '#bddae3',
+					weight: 1.3,
+					dashArray: '',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+
+		}
+		var exp_LotJSON = new L.geoJson(exp_Lot,{
+			onEachFeature: pop_Lot,
+			style: doStyleLot
+		});
+		layerOrder[layerOrder.length] = exp_LotJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_LotJSON);
+		function pop_Sungai(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">name</th><td>' + Autolinker.link(String(feature.properties['name'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleSungai(feature) {
+				return {
+					weight: 2.3,
+					color: '#1f78b4',
+					dashArray: '',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+		}
+		var exp_SungaiJSON = new L.geoJson(exp_Sungai,{
+			onEachFeature: pop_Sungai,
+			style: doStyleSungai
+		});
+		layerOrder[layerOrder.length] = exp_SungaiJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_SungaiJSON);
+		function pop_Jalan(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">name</th><td>' + Autolinker.link(String(feature.properties['name'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleJalan(feature) {
+				return {
+					weight: 1.3,
+					color: '#404040',
+					dashArray: '',
+					opacity: 0.733333,
+					fillOpacity: 0.733333
+				};
+		}
+		var exp_JalanJSON = new L.geoJson(exp_Jalan,{
+			onEachFeature: pop_Jalan,
+			style: doStyleJalan
+		});
+		layerOrder[layerOrder.length] = exp_JalanJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_JalanJSON);
+		function pop_Zon(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zon</th><td>' + Autolinker.link(String(feature.properties['Zon'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_ZonJSON = new L.geoJson(exp_Zon,{
+			onEachFeature: pop_Zon,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 16.0,
+					fillColor: '#ffffff',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZonJSON);
+		function pop_Keagamaan(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr><tr><th scope="row">Jenis</th><td>' + Autolinker.link(String(feature.properties['Jenis'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_KeagamaanJSON = new L.geoJson(exp_Keagamaan,{
+			onEachFeature: pop_Keagamaan,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 6.0,
+					fillColor: '#efff03',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_KeagamaanJSON);
+		function pop_Pengangkutan(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_PengangkutanJSON = new L.geoJson(exp_Pengangkutan,{
+			onEachFeature: pop_Pengangkutan,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 6.0,
+					fillColor: '#ff0ae3',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_PengangkutanJSON);
+		function pop_Makanan(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_MakananJSON = new L.geoJson(exp_Makanan,{
+			onEachFeature: pop_Makanan,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 6.0,
+					fillColor: '#ff0004',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_MakananJSON);
+		function pop_Penginapan(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr><tr><th scope="row">NoTelefon</th><td>' + Autolinker.link(String(feature.properties['NoTelefon'])) + '</td></tr><tr><th scope="row">Harga</th><td>' + Autolinker.link(String(feature.properties['Harga'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_PenginapanJSON = new L.geoJson(exp_Penginapan,{
+			onEachFeature: pop_Penginapan,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 6.0,
+					fillColor: '#ffb300',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_PenginapanJSON);
+		function pop_Kemudahan(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr><tr><th scope="row">NoTelefon</th><td>' + Autolinker.link(String(feature.properties['NoTelefon'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_KemudahanJSON = new L.geoJson(exp_Kemudahan,{
+			onEachFeature: pop_Kemudahan,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 6.0,
+					fillColor: '#00fff7',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_KemudahanJSON);
+		function pop_Rekreasi(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">name</th><td>' + Autolinker.link(String(feature.properties['name'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var exp_RekreasiJSON = new L.geoJson(exp_Rekreasi,{
+			onEachFeature: pop_Rekreasi,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 6.0,
+					fillColor: '#3903ff',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_RekreasiJSON);
+		function pop_Network(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Nama</th><td>' + Autolinker.link(String(feature.properties['Nama'])) + '</td></tr><tr><th scope="row">Jarak</th><td>' + Autolinker.link(String(feature.properties['Jarak'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleNetwork(feature) {
+			switch (feature.properties.Nama) {
+				case 'HOTEL_GNGLANG':
+					return {
+						color: '#ff120a',
+						weight: '4.3',
+						dashArray: '',
+						opacity: '1.0',
+					};
+					break;
+				case 'KTM_GM':
+					return {
+						color: '#efff03',
+						weight: '4.3',
+						dashArray: '',
+						opacity: '1.0',
+					};
+					break;
+				default:
+					return {
+						color: '#dd2883',
+						weight: '1.3',
+						dashArray: '',
+						opacity: '1.0',
+					};
+					break;
+				case '8.5937008468167':
+					return {
+						color: '#17ff02',
+						weight: '4.3',
+						dashArray: '',
+						opacity: '1.0',
+					};
+					break;
+				case 'TOL':
+					return {
+						color: '#ff00e2',
+						weight: '4.3',
+						dashArray: '',
+						opacity: '1.0',
+					};
+					break;
+			}
+		}
+		var exp_NetworkJSON = new L.geoJson(exp_Network,{
+			onEachFeature: pop_Network,
+			style: doStyleNetwork
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_NetworkJSON);
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>IPOH TOURISM MAP</h2>An Interactive Map by QGIS'
+		};
+		title.addTo(map);
+		var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'topright',
+            text: 'Find!',
+		});
+		osmGeocoder.addTo(map);
+	var baseMaps = {
+		'OSM Standard': basemap_0
+	};
+		L.control.layers(baseMaps,{"Network": exp_NetworkJSON,"Rekreasi": exp_RekreasiJSON,"Kemudahan": exp_KemudahanJSON,"Penginapan": exp_PenginapanJSON,"Makanan": exp_MakananJSON,"Pengangkutan": exp_PengangkutanJSON,"Keagamaan": exp_KeagamaanJSON,"Zon": exp_ZonJSON,"Jalan": exp_JalanJSON,"Sungai": exp_SungaiJSON,"Lot": exp_LotJSON,"Daerah": exp_DaerahJSON},{collapsed:false}).addTo(map);
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	</script>
+</body>
+</html>
